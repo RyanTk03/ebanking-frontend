@@ -3,7 +3,7 @@
     <div class="header-left">
       <span class="table-icon">👥</span>
       <h2 class="table-title">Customers</h2>
-      <span class="badge">{{ customers.length }}</span>
+      <span class="badge">{{ customers()?.length }}</span>
     </div>
   </div>
 
@@ -22,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers; let i = index"
+      <tr *ngFor="let customer of customers(); let i = index"
           class="table-row"
           [style.animation-delay]="i * 60 + 'ms'">
         <td class="id-cell">

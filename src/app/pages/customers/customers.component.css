@@ -9,3 +9,8 @@
 .customers-table-container {
   flex: 1;
 }
+
+.failureOrLoading {
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,19 @@
 <div class="customers-container">
-  <div class="customers-table-container">
-    <app-customers-table></app-customers-table>
+  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
+    <div class="customers-table-container">
+      <app-customers-table [customers]="(customers | async) ?? undefined"></app-customers-table>
+    </div>
+  </ng-container>
+  <div class="failureOrLoading">
+    <ng-template #failureOrLoading>
+      <ng-container *ngIf="errorMessage; else loading">
+        <div class="text-danger">
+          {{errorMessage}}
+        </div>
+      </ng-container>
+      <ng-template #loading>
+        Loading .....
+      </ng-template>
+    </ng-template>
   </div>
 </div>
