@@ -1,0 +1,45 @@
+<div class="table-wrapper">
+  <div class="table-header">
+    <div class="header-left">
+      <span class="table-icon">👥</span>
+      <h2 class="table-title">Customers</h2>
+      <span class="badge">{{ customers.length }}</span>
+    </div>
+  </div>
+
+  <table class="customers-table">
+    <thead>
+      <tr>
+        <th class="sortable">
+          ID
+        </th>
+        <th class="sortable">
+          Nom
+        </th>
+        <th class="sortable">
+          Email
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers; let i = index"
+          class="table-row"
+          [style.animation-delay]="i * 60 + 'ms'">
+        <td class="id-cell">
+          <span class="id-badge">#{{ customer.id }}</span>
+        </td>
+        <td class="name-cell">
+          {{ customer.name }}
+        </td>
+        <td class="email-cell">
+          {{ customer.email }}
+        </td>
+      </tr>
+      <tr *ngIf="customers.length === 0">
+        <td colspan="4" class="empty-state">
+          <span>Aucun client trouvé</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,45 @@
+.site-header {
+  padding: 1.5rem 2rem;
+  background-color: aliceblue;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-header__logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-list__item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: rgb(36, 186, 255);
+  transition: width 0.1s ease-in;
+}
+
+.nav-list__item:hover::after {
+  width: 100%;
+}
+
+.nav-list__link {
+  color: rgb(92, 92, 92);
+  text-decoration: none;
+}
+
+.nav-list__link:hover {
+  color: black;
+}
