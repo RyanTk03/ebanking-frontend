@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgIf, NgForOf } from '@angular/common';
 import { Customer } from '../../../models/customer.model';
@@ -12,6 +12,14 @@ import { Customer } from '../../../models/customer.model';
 export class CustomersTableComponent {
   customers = input<Customer[]>();
 
-  ngOnInit(): void {
+  deleteCustomer = output<Customer>();
+  viewAccounts = output<Customer>();
+ 
+  onDelete(customer: Customer): void {
+    this.deleteCustomer.emit(customer);
+  }
+ 
+  onViewAccounts(customer: Customer): void {
+    this.viewAccounts.emit(customer);
   }
 }

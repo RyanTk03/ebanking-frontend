@@ -1,19 +1,38 @@
 <div class="customers-container">
-  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
-    <div class="customers-table-container">
-      <app-customers-table [customers]="(customers | async) ?? undefined"></app-customers-table>
-    </div>
-  </ng-container>
-  <div class="failureOrLoading">
-    <ng-template #failureOrLoading>
-      <ng-container *ngIf="errorMessage; else loading">
-        <div class="text-danger">
-          {{errorMessage}}
-        </div>
-      </ng-container>
-      <ng-template #loading>
-        Loading .....
-      </ng-template>
-    </ng-template>
+
+  <div class="search-bar">
+    <form [formGroup]="searchFormGroup!" (ngSubmit)="handleSearchCustomers()" class="search-form">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input
+          type="text"
+          formControlName="keyword"
+          placeholder="Rechercher un client..."
+          class="search-input"
+        />
+      </div>
+      <button type="submit" class="btn-search">Rechercher</button>
+    </form>
   </div>
+
+  <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">
+    <app-customers-table
+      [customers]="listCustomers"
+      (deleteCustomer)="handleDeleteCustomer($event)"
+      (viewAccounts)="handleCustomerAccounts($event)"
+    ></app-customers-table>
+  </ng-container>
+
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="text-danger">{{ errorMessage }}</div>
+    </ng-container>
+    <ng-template #loading>
+      <div class="loading">Chargement...</div>
+    </ng-template>
+  </ng-template>
+
 </div>
