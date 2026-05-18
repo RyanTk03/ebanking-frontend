@@ -5,12 +5,12 @@ import { CustomersService } from '../../services/customers.service';
 import { Customer } from '../../models/customer.model';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-customers',
   standalone: true,
-  imports: [CustomersTableComponent, NgIf, AsyncPipe, ReactiveFormsModule],
+  imports: [CustomersTableComponent, NgIf, AsyncPipe, ReactiveFormsModule, RouterLink],
   templateUrl: './customers.component.html',
   styleUrl: './customers.component.css'
 })

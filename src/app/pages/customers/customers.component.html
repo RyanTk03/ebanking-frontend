@@ -16,6 +16,12 @@
       </div>
       <button type="submit" class="btn-search">Rechercher</button>
     </form>
+    <a class="btn-new" routerLink="/new-customer">
+      <svg viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      Nouveau client
+    </a>
   </div>
 
   <ng-container *ngIf="customers | async as listCustomers; else failureOrLoading">

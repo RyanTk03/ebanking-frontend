@@ -1,0 +1,120 @@
+.new-customer-container {
+  padding: 2rem;
+}
+
+
+.form-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.8rem;
+  max-width: 480px;
+}
+
+.form-card-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 .25rem;
+}
+
+.form-subtitle {
+  font-size: .875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Form */
+.customer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+
+.form-label {
+  font-size: .8rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  height: 38px;
+  padding: 0 .75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: .875rem;
+  color: #111827;
+  outline: none;
+  transition: border-color .15s;
+}
+
+.form-input::placeholder {
+  color: #9ca3af;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+}
+
+.has-error .form-input {
+  border-color: #ef4444;
+}
+
+.error-messages {
+  font-size: .78rem;
+  color: #ef4444;
+}
+
+/* Actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: .6rem;
+  margin-top: .4rem;
+}
+
+.btn-cancel,
+.btn-save {
+  height: 36px;
+  padding: 0 1rem;
+  border-radius: 8px;
+  font-size: .875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .15s;
+}
+
+.btn-cancel {
+  background: #f9fafb;
+  color: #374151;
+  border-color: #e5e7eb;
+}
+
+.btn-cancel:hover {
+  background: #f3f4f6;
+}
+
+.btn-save {
+  background: #111827;
+  color: #fff;
+}
+
+.btn-save:hover:not(:disabled) {
+  opacity: .85;
+}
+
+.btn-save:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}

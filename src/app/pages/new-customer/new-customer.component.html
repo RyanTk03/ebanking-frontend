@@ -1,0 +1,51 @@
+<div class="new-customer-container">
+  <div class="form-card">
+
+    <div class="form-card-header">
+      <h2 class="form-title">Nouveau client</h2>
+      <p class="form-subtitle">Remplissez les informations du client</p>
+    </div>
+
+    <form [formGroup]="newCustomerFormGroup" (ngSubmit)="handleSaveCustomer()" class="customer-form">
+
+      <!-- Name -->
+      <div class="form-group" [class.has-error]="newCustomerFormGroup.get('name')?.invalid && newCustomerFormGroup.get('name')?.touched">
+        <label for="name" class="form-label">Nom</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Ex: Hassan Alaoui"
+          class="form-input"
+        />
+        <div class="error-messages" *ngIf="newCustomerFormGroup.get('name')?.invalid && newCustomerFormGroup.get('name')?.touched">
+          <span *ngIf="newCustomerFormGroup.get('name')?.errors?.['required']">Le nom est requis.</span>
+          <span *ngIf="newCustomerFormGroup.get('name')?.errors?.['minlength']">Minimum 4 caractères.</span>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group" [class.has-error]="newCustomerFormGroup.get('email')?.invalid && newCustomerFormGroup.get('email')?.touched">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Ex: hassan@gmail.com"
+          class="form-input"
+        />
+        <div class="error-messages" *ngIf="newCustomerFormGroup.get('email')?.invalid && newCustomerFormGroup.get('email')?.touched">
+          <span *ngIf="newCustomerFormGroup.get('email')?.errors?.['required']">L'email est requis.</span>
+          <span *ngIf="newCustomerFormGroup.get('email')?.errors?.['email']">Email invalide.</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn-cancel" (click)="router.navigateByUrl('/customers')">Annuler</button>
+        <button type="submit" class="btn-save" [disabled]="newCustomerFormGroup.invalid">Enregistrer</button>
+      </div>
+
+    </form>
+  </div>
+</div>
